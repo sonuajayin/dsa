@@ -1,29 +1,34 @@
 using System;
-class Program
+using System.Collections.Generic;
+
+namespace cSharp
 {
-    static void Main(string[] args)
+    class Program
     {
-        int[] arr = new int[] { 1, 2, 3, 2, 4, 3, 5, 6, 7, 8, 5 };
-        HashSet<Int32> set = new HashSet<Int32>();
-
-        int firstDuplicate = -1;
-        int indexOfFirstDuplicate = -1;
-
-        for (int i = 0; i < arr.Length; i++)
+        static void Main(string[] args)
         {
-            int value = arr[i];
-            if (set.Add(value))
-            {
-                set.Add(value);
-            }
-            else
-            {
-                firstDuplicate = value;
-                indexOfFirstDuplicate = i;
-                break;
-            }
-        }
+            int[] arr = new int[] { 1, 2, 3, 2, 4, 3, 5, 6, 7, 8, 5 };
+            var set = new HashSet<Int32>();
 
-        Console.WriteLine("First Duplicate on Index = " + indexOfFirstDuplicate + " Value = " + firstDuplicate);
+            int firstDuplicate = -1;
+            int indexOfFirstDuplicate = -1;
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                int value = arr[i];
+                if (set.Add(value))
+                {
+                    set.Add(value);
+                }
+                else
+                {
+                    firstDuplicate = value;
+                    indexOfFirstDuplicate = i;
+                    break;
+                }
+            }
+
+            Console.WriteLine("First Duplicate on Index = " + indexOfFirstDuplicate + " Value = " + firstDuplicate);
+        }
     }
 }
